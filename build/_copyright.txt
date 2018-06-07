@@ -1,0 +1,6 @@
+Copyright (C) 2017 - 2018 {Storeplex} [support@storeplex.com]
+
+This file and all other files found within this directory and sub directories are part of {Storeplex Landing Project}
+
+This file cannot be copied and/or distributed without the
+express permission of {Storeplex}
