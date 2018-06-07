@@ -21,12 +21,6 @@ jQuery(document).ready(function($) {
   $('.airdrop-information p').css('opacity', '1')
   $('.social-links').css('opacity', '1')
 
-  // URL extention Modal
-  if(window.location.href.indexOf('/#airdrop') != -1) {
-    $('#modals, #modals #airdrop-modal').addClass('active');
-    $('body, html').css('overflow', 'hidden')
-  }
-
   // Mobile toggle
   $('#nav-toggle').click(function(e) {
     e.stopPropagation();
@@ -206,56 +200,55 @@ jQuery(document).ready(function($) {
   function parallax() {
     var wScroll = $(window).scrollTop()
 
-    // Lazy load Images
-    // if(wScroll > 800) {
-    //
-    // }
-
     // Airdrop Live Notification
-    if(wScroll < 200) {
-      $('.airdrop-information').css({
-        'opacity': '1',
-        'transform': 'translateX(0)'
-      })
-      $('.social-links').css({
-        'opacity': '1',
-        'transform': 'translateX(0)'
-      })
-    } else if(wScroll > $('section#faq').offset().top - ($(window).height() / 1.5)) {
-      $('.social-links').css({
-        'opacity': '1',
-        'transform': 'translateX(0%)'
-      })
-    } else {
-      $('.airdrop-information').css({
-        'opacity': '0',
-        'transform': 'translateX(-100%)'
-      })
-      $('.social-links').css({
-        'opacity': '0',
-        'transform': 'translateX(100%)'
-      })
+    if($('.airdrop-information').length > 0) {
+      if(wScroll < 200) {
+        $('.airdrop-information').css({
+          'opacity': '1',
+          'transform': 'translateX(0)'
+        })
+        $('.social-links').css({
+          'opacity': '1',
+          'transform': 'translateX(0)'
+        })
+      } else if(wScroll > $('section#faq').offset().top - ($(window).height() / 1.5)) {
+        $('.social-links').css({
+          'opacity': '1',
+          'transform': 'translateX(0%)'
+        })
+      } else {
+        $('.airdrop-information').css({
+          'opacity': '0',
+          'transform': 'translateX(-100%)'
+        })
+        $('.social-links').css({
+          'opacity': '0',
+          'transform': 'translateX(100%)'
+        })
+      }
     }
 
     //Distribution Progress animate
-    if(wScroll > $('section#distribution-progress').offset().top - ($(window).height() / 1.5)) {
-      $('.distribution-item > .image-area > div').removeClass('animate')
+    if($('#distribution-progress').length > 0) {
+      if(wScroll > $('section#distribution-progress').offset().top - ($(window).height() / 1.5)) {
+        $('.distribution-item > .image-area > div').removeClass('animate')
+      }
+
+      // Token Distribution Bubbles
+      $('#token-distribution .bubbles > svg:first-child').css('top', -25 + (wScroll * 0.012) + 'rem')
+      $('#token-distribution .bubbles > svg:last-child').css('top', (wScroll * 0.008) + 'rem')
+
+      // Roadmap Bubbles
+      $('section#roadmap .bubbles > svg:first-child').css('top', -70 + (wScroll * 0.014) + 'rem')
+      $('section#roadmap .bubbles > svg:nth-child(2)').css('top', -45 + (wScroll * 0.012) + 'rem')
+      $('section#roadmap .bubbles > svg:last-child').css('top', (wScroll * 0.016) + 'rem')
+
+      // Why you need Plex Bubbles
+      $('section#why-you-need-plex .bubbles > svg:first-child').css('top', -155 + (wScroll * 0.025) + 'rem')
+
+      // Funds Distribution Bubbles
+      $('section#funds-distribution .bubbles > svg:first-child').css('top', -155 + (wScroll * 0.025) + 'rem')
     }
-
-    // Token Distribution Bubbles
-    $('#token-distribution .bubbles > svg:first-child').css('top', -25 + (wScroll * 0.012) + 'rem')
-    $('#token-distribution .bubbles > svg:last-child').css('top', (wScroll * 0.008) + 'rem')
-
-    // Roadmap Bubbles
-    $('section#roadmap .bubbles > svg:first-child').css('top', -70 + (wScroll * 0.014) + 'rem')
-    $('section#roadmap .bubbles > svg:nth-child(2)').css('top', -45 + (wScroll * 0.012) + 'rem')
-    $('section#roadmap .bubbles > svg:last-child').css('top', (wScroll * 0.016) + 'rem')
-
-    // Why you need Plex Bubbles
-    $('section#why-you-need-plex .bubbles > svg:first-child').css('top', -155 + (wScroll * 0.025) + 'rem')
-
-    // Funds Distribution Bubbles
-    $('section#funds-distribution .bubbles > svg:first-child').css('top', -155 + (wScroll * 0.025) + 'rem')
   }
 
   // Modal Interaction
@@ -266,7 +259,7 @@ jQuery(document).ready(function($) {
   })
 
   // -- Airdrop
-  $('#airdrop-button, .airdrop-information').click(function() {
+  $('#airdrop-button').click(function() {
     $('#modals, #modals #airdrop-modal, #content').addClass('active')
     $('body, html').css('overflow', 'hidden')
   })
@@ -522,7 +515,7 @@ jQuery(document).ready(function($) {
       },
       success: function(data) {
         // Adds feedback alert
-        $send.val('Successfully sent!').addClass('success')
+        $send.val('Submission Successful!').addClass('success')
 
         // Reset delay
         setTimeout(function() {
@@ -530,12 +523,9 @@ jQuery(document).ready(function($) {
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('success')
 
-          // Closes Modal
-          $('#modals, #modals #airdrop-modal').removeClass('active')
-
           // Clears form input
           $(form)[0].reset()
-        }, 2600)
+        }, 5000)
       },
       error: function(err) {
         // Adds feedback alert
@@ -546,7 +536,51 @@ jQuery(document).ready(function($) {
           // Enables user Interaction
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('error')
-        }, 2000)
+        }, 3000)
+      }
+    })
+  })
+
+  // Bounties handler
+  $('#bounties-form').submit(function(e) {
+    var form = this
+    e.preventDefault()
+    var $send = $('input:submit', form)
+    var defaultText = $send.val()
+
+    $.ajax({
+      url: 'bounties.php',
+      method: 'POST',
+      data: $(this).serialize(),
+      beforeSend: function() {
+        // Disables user Interaction
+        $('input').attr('disabled', true)
+        $send.attr('disabled', true).val('Sending...')
+      },
+      success: function(data) {
+        // Adds feedback alert
+        $send.val('Submission Successful!').addClass('success')
+
+        // Reset delay
+        setTimeout(function() {
+          // Enables user Interaction
+          $('input').attr('disabled', false)
+          $send.attr('disabled', false).val(defaultText).removeClass('success')
+
+          // Clears form input
+          $(form)[0].reset()
+        }, 5000)
+      },
+      error: function(err) {
+        // Adds feedback alert
+        $send.val('Please try again later.').addClass('error')
+
+        // Reset delay
+        setTimeout(function() {
+          // Enables user Interaction
+          $('input').attr('disabled', false)
+          $send.attr('disabled', false).val(defaultText).removeClass('error')
+        }, 3000)
       }
     })
   })

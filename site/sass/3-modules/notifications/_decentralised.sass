@@ -3,18 +3,20 @@
   text-align: center
   z-index: 20
   top: 90px
-  background: lighten($text-color, 15%)
-  background: $primary-color
-  background: linear-gradient(135deg, $primary-color 0%,darken($primary-color, 8%) 100%)
+  margin-top: 0
   background: linear-gradient(0deg, lighten($text-color, 27%) 0%,lighten($text-color, 15%) 100%)
   box-shadow: 1px 1px 10px rgba(black, 0.2)
-  width: auto
   max-width: 1200px
-  padding: 1rem 1.9rem 1rem 1rem
   padding: 1rem 1.9rem
   left: 50%
   transform: translateX(-50%)
   border-radius: 15px 15px 100px 100px
+
+  &.hide
+    display: none
+
+  &.alert
+    background: linear-gradient(0deg, lighten($negative-color, 0%) 0%,lighten($negative-color, 15%) 100%)
 
   p
     font-weight: $f-md

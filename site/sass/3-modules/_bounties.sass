@@ -1,7 +1,8 @@
-section#bounties
-  //
+section#bounties,
+section#airdrop
 
-  form#bounties-form
+  form#bounties-form,
+  form#airdrop-form
     max-width: 640px
     margin: 0 auto
 
@@ -14,3 +15,6 @@ section#bounties
         position: absolute
         margin-top: 0.45rem
         margin-left: 0.3rem
+
+    input[type="submit"]:disabled
+      color: lighten($text-color, 60%)
