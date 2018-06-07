@@ -1,0 +1,128 @@
+#buy-tokens-modal
+  //
+
+  .body
+    text-align: center
+
+    .container-half
+      display: inline-block
+      vertical-align: top
+      text-align: left
+      margin-right: 1rem
+      padding-left: 1rem
+
+      &:nth-of-type(2)
+        padding-left: 0
+        margin-right: 0
+        width: calc(100% - 440px - 1.4rem)
+
+      &:first-child
+        width: 440px
+        text-align: center
+        padding-left: 0
+        padding-right: 1rem
+        border-right: solid 2px lighten($text-color, 90%)
+
+      img
+        margin: 0 auto 1rem
+        width: 80%
+        border: solid 2px lighten($text-color, 90%)
+        padding: 1rem
+        display: block
+        border-radius: 10px
+
+      h4
+        text-align: left
+        margin-bottom: 0.8rem
+        font-size: 1.2rem
+        font-weight: $f-sm
+
+      .address
+        margin-bottom: 1rem
+        padding: 0.4rem 0.6rem
+        display: flex
+        vertical-align: middle
+        border-radius: 500px
+        overflow: hidden
+        height: 54px
+        border: solid 2px lighten($text-color, 90%)
+
+        span#eth-send-address
+          overflow: hidden
+          display: inline-block
+          height: 104px
+          font-size: 1rem
+          padding: 0.5rem 0.4rem
+          overflow: auto
+
+        i
+          padding: 0.2rem
+          margin-left: 0rem
+          font-size: 1.4rem
+          padding: 0.5rem
+          display: inline-block
+          color: lighten($text-color, 40%)
+          border-left: solid 2px lighten($text-color, 90%)
+          transition: 0.2s ease-in-out
+
+          &:hover
+            color: darken($text-color, 60%)
+
+      ul
+
+        li
+          font-size: 1.1rem
+          margin-bottom: 2rem
+          position: relative
+          margin-left: 1.1rem
+
+          &:before
+            margin-top: 0.45rem
+            font-family: $icon-font
+            content: 'lens'
+            margin-right: 0.5rem
+            position: absolute
+            right: 100%
+            font-size: 0.5rem
+
+      > span
+        font-size: 0.8rem
+
+        a
+          font-weight: $f-md
+
+    // Width 880px
+    @media only screen and(max-width: 880px)
+      .container-half
+        display: block
+        width: 100%
+
+        &:nth-of-type(2)
+          width: 100%
+
+        &:first-child
+          width: 100%
+          margin-bottom: 1rem
+          padding: 0
+          padding-bottom: 1rem
+          border-right: none
+          border-bottom: solid 2px lighten($text-color, 90%)
+
+        img
+          margin: 0 auto 1rem
+          max-width: 380px
+          border: solid 2px lighten($text-color, 90%)
+          padding: 1rem
+          display: block
+          border-radius: 10px
+
+        h4
+          font-size: 1.1rem
+
+        .address
+          margin: 0 auto 1rem
+          max-width: 460px
+
+        ul li
+          font-size: 1rem
+          margin-bottom: 1rem

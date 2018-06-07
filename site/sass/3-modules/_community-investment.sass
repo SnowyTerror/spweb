@@ -1,0 +1,35 @@
+section#community-investment
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: top
+  background-attachment: fixed
+
+  // Above Width 1200px
+  @media only screen and(min-width: 1200px)
+    background-image: url('../images/section-backgrounds/large/bg-community.jpg')
+
+  // Below Width 1200px
+  @media only screen and(max-width: 1200px)
+    background-image: url('../images/section-backgrounds/medium/bg-community.jpg')
+
+  // Below Width 960px
+  @media only screen and(max-width: 960px)
+    background-image: url('../images/section-backgrounds/small/bg-community.jpg')
+
+  // Below Width 480px
+  @media only screen and(max-width: 480px)
+    background-image: linear-gradient(#261711, #261711)
+
+  p
+    font-size: 1.1rem
+    line-height: 210%
+    color: darken($background-color, 10%)
+
+    // Width 960px
+    @media only screen and(max-width: 960px)
+      font-size: 1rem
+      text-align: center
+
+  .cta-area
+    margin-top: 1rem
+    text-align: center

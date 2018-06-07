@@ -1,0 +1,39 @@
+.airdrop-information
+  position: fixed
+  text-align: center
+  z-index: 20
+  display: none
+  background: lighten($text-color, 15%)
+  background: $primary-color
+  background: linear-gradient(180deg, $primary-color 0%,lighten($primary-color, 15%) 100%)
+  box-shadow: 1px 1px 10px rgba(black, 0.2)
+  width: auto
+  bottom: 2rem
+  border-radius: 0 500px 500px 0
+  display: none
+  transition: transform 1s ease-out, opacity 0.9s ease-in
+  transform: translateX(-100%)
+  opacity: 0
+  overflow: hidden
+  cursor: pointer
+
+  p
+    display: block
+    opacity: 0
+    transition: opacity 0.8s ease-in 0.8s
+    color: white
+    padding: 1rem 1.9rem
+
+  &.active
+    display: block
+
+  // Width 680px
+  @media only screen and(max-width: 680px)
+    width: 100%
+    border-radius: 0
+    bottom: 0
+    transition: transform 0.4s ease-out, opacity 0.5s ease-in
+
+    p
+      font-size: 0.8rem
+      transition: opacity 0.6s ease-in 0.4s

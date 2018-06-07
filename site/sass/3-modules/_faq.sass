@@ -1,0 +1,106 @@
+section#faq
+  padding: 6rem 0
+
+  .container
+    margin: 0 auto
+
+  h2
+    margin-bottom: 3rem
+
+  ul.faq
+
+    li
+      margin-bottom: 1rem
+      cursor: pointer
+      display: flex
+      flex-wrap: wrap
+
+      i
+        font-size: 2.2rem
+        vertical-align: middle
+        transform-origin: center
+        transform: translateY(2px)
+        display: inline-flex
+        color: $primary-color
+        transition: 0.2s ease-in-out
+        height: 2.2rem
+
+      h3
+        font-size: 1.2rem
+        font-weight: $f-md
+        letter-spacing: 1px
+        line-height: 2.5rem
+        display: inline-flex
+        align-items: center
+        padding-left: 0.5rem
+        width: 90%
+
+        &:hover
+          &:before
+            background: darken($primary-color, 3%)
+            box-shadow: 0 3px 3px rgba($text-color, 0.6)
+
+      .answer
+        margin: 0
+        margin-left: 3rem
+        font-size: 0.9rem
+        line-height: 180%
+        color: lighten($text-color, 25%)
+        visibility: hidden
+        height: 0
+        overflow: hidden
+        transition: all 0.23s ease-in-out, opacity 0.3s ease-in-out 0.1s
+        opacity: 0
+
+      &.active
+        i
+          transform: rotate(45deg) translate(1.5px, 1.5px)
+
+        .answer
+          margin: 0.5rem 0 0 3rem
+          visibility: visible
+          height: 100%
+          opacity: 1
+
+  // Width 640px
+  @media only screen and(max-width: 640px)
+    padding: 4rem 0
+
+    .container
+      width: 95%
+
+  // Width 480px
+  @media only screen and(max-width: 480px)
+    h2
+      margin-bottom: 1rem
+      font-size: 1.2rem
+
+    ul.faq li
+
+      i
+        font-size: 2rem
+
+      h3
+        font-size: 1.1rem
+        line-height: 2rem
+        font-weight: $f-sm
+        padding-left: 0.3rem
+
+      .answer
+        margin: 0.5rem 0 0rem 2.5rem
+        font-size: 0.85rem
+
+  // Width 350px
+  @media only screen and(max-width: 350px)
+    ul.faq li
+      i
+        font-size: 2rem
+        vertical-align: middle
+        transform: translateY(0)
+        display: inline-flex
+        height: 100%
+
+      h3
+        font-size: 1rem
+        line-height: 1.8rem
+        width: 88%

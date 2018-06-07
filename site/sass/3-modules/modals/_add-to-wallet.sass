@@ -1,0 +1,212 @@
+#add-to-wallet-modal
+  //
+
+  .body
+    text-align: center
+
+    .container-main
+      width: 100%
+      text-align: left
+      padding-bottom: 1rem
+      margin-bottom: 1rem
+      border-bottom: solid 2px lighten($text-color, 90%)
+
+      h4
+        margin-bottom: 0.8rem
+        font-size: 1.2rem
+        font-weight: $f-sm
+
+      ul
+        width: 100%
+        justify-content: space-around
+        display: flex
+
+        li
+          display: inline-flex
+          flex-direction: column
+          text-align: center
+
+          > input
+            display: none
+
+          > label
+            display: flex
+            flex-direction: column
+            cursor: pointer
+
+            img,
+            svg
+              filter: grayscale(100%)
+              margin: 0 auto
+              width: 60px
+              margin-bottom: 0.4rem
+              transition: 0.4s ease-in-out
+              backface-visibility: hidden
+
+            span
+              font-weight: $f-md
+              color: lighten($text-color, 40%)
+              transition: 0.2s ease-in-out
+              font-size: 0.8rem
+
+          input:checked
+
+            ~ label img,
+            ~ label svg
+              filter: grayscale(0)
+
+            ~ label span
+              color: $text-color
+
+    .container-half
+      display: inline-block
+      vertical-align: top
+      text-align: left
+      margin-right: 1rem
+      padding-left: 1rem
+
+      &:nth-of-type(2)
+        padding-left: 0
+        padding-right: 1rem
+        margin-right: 0
+        border-right: solid 2px lighten($text-color, 90%)
+        width: calc(100% - 440px - 1.4rem)
+
+      &:last-child
+        text-align: center
+        width: 440px
+
+      h4
+        text-align: left
+        margin-bottom: 0.8rem
+        font-size: 1.2rem
+        font-weight: $f-sm
+
+      ol
+        counter-reset: custom-counter
+        list-style: none
+
+        li
+          counter-increment: custom-counter
+          font-size: 1.1rem
+          margin-bottom: 1.5rem
+          position: relative
+          margin-left: 2.2rem
+
+          &:before
+            width: 30px
+            position: absolute
+            text-align: right
+            right: 100%
+            content: counter(custom-counter)
+            color: $text-color
+            font-weight: $f-md
+            border-bottom: solid 2px $primary-color
+            border-image-source: linear-gradient(to right, #ffffff 0%,#ffffff 15%,$primary-color 70%,$primary-color 100%)
+            border-image-slice: 1
+            margin-right: 0.4rem
+            padding-bottom: 0.2rem
+            font-size: 1.1rem
+
+      p
+        margin-bottom: 0.8rem
+        font-size: 0.9rem
+        line-height: 130%
+
+        b
+          color: $primary-color
+
+      .address
+        margin-bottom: 1rem
+        padding: 0.4rem 0.6rem
+        display: flex
+        vertical-align: middle
+        border-radius: 500px
+        overflow: hidden
+        height: 54px
+        border: solid 2px lighten($text-color, 90%)
+
+        span#eth-address
+          overflow: hidden
+          display: inline-block
+          height: 104px
+          font-size: 1rem
+          padding: 0.5rem 0.4rem
+          overflow: auto
+
+        i
+          padding: 0.2rem
+          margin-left: 0rem
+          font-size: 1.4rem
+          padding: 0.5rem
+          display: inline-block
+          color: lighten($text-color, 40%)
+          border-left: solid 2px lighten($text-color, 90%)
+          transition: 0.2s ease-in-out
+
+          &:hover
+            color: darken($text-color, 60%)
+
+      ul
+
+        li
+          font-size: 1.1rem
+          padding-bottom: 0.6rem
+          color: lighten($text-color, 20%)
+
+          b
+            margin-right: 0.2rem
+
+    // Width 880px
+    @media only screen and(max-width: 880px)
+      .container-main
+
+        h4
+          font-size: 1.1rem
+
+        ul li
+          img,
+          svg
+            width: 25px
+
+          span
+            font-size: 0.7rem
+
+      .container-half
+        display: block
+        padding: 0
+        width: 100%
+
+        &:nth-of-type(2)
+          width: 100%
+          border-right: none
+          margin-bottom: 1rem
+          padding-bottom: 1rem
+          border-bottom: solid 2px lighten($text-color, 90%)
+
+        &:last-child
+          width: 100%
+
+        h4
+          font-size: 1.1rem
+
+        ol li
+          font-size: 1rem
+          margin-bottom: 1.8rem
+          margin-left: 1.5rem
+
+          &:before
+            width: 20px
+            padding-bottom: 0.1rem
+            font-size: 1rem
+
+        p
+          font-size: 0.8rem
+
+        .address
+          margin: 0 auto 1rem
+          max-width: 460px
+
+        ul li
+          font-size: 1rem
+          padding-bottom: 0.8rem

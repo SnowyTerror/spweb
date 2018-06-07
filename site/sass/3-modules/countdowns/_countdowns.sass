@@ -1,0 +1,65 @@
+> .container
+  margin-top: 26rem
+  text-align: center
+  max-width: 720px
+
+  // Width 750px
+  @media only screen and(max-width: 750px)
+    margin-top: 15rem
+
+  // Width 480px
+  @media only screen and(max-width: 480px)
+    margin-top: 13.5rem
+
+
+
+  #next-countdown,
+  #current-countdown,
+  #ico-finished
+    display: none
+
+    .wrapper
+      display: block
+      width: 100%
+
+      .countdown-area
+
+        h2
+          color: white
+
+        .countdown
+
+          > div
+            width: 90px
+            display: inline-block
+            margin-right: 1rem
+
+            &:last-child
+              margin-right: 0
+
+            span
+              font-size: 4.5rem
+              font-weight: $f-md
+              color: white
+              text-shadow: 2px 2px 0px rgba(black, 0.3)
+
+            p
+              font-size: 1rem
+              color: lighten($text-color, 80%)
+              opacity: 0.8
+
+            // Width 480px
+            @media only screen and(max-width: 480px)
+              width: 65px
+              margin-right: 0.5rem
+
+
+              span
+                font-size: 3.2rem
+
+              p
+                font-size: 0.85rem
+
+  @import 'next-sale'
+  @import 'current-sale'
+  @import 'ico-finished'

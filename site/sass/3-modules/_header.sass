@@ -1,0 +1,72 @@
+header
+  position: relative
+  overflow: hidden
+  height: 100vh
+  min-height: 940px
+
+  // Width 640px
+  @media only screen and(max-width: 640px)
+    min-height: inherit
+
+  // Bubbles
+  #landing-background-main
+    position: absolute
+    top: 15rem
+    left: 0
+    right: 0
+    z-index: -1
+    height: 600px
+    margin: 0 auto
+    width: 100%
+
+    // Width 750px
+    @media only screen and(max-width: 750px)
+      width: 280%
+      height: auto
+      top: -50%
+      left: -150%
+
+    // Width 460px
+    @media only screen and(max-width: 460px)
+      width: 350%
+      top: -30%
+
+  #landing-background-left
+    position: absolute
+    top: 25rem
+    left: 5rem
+    z-index: -1
+    height: 400px
+
+    // Width 1315px
+    @media only screen and(max-width: 1315px)
+      display: none
+
+  #landing-background-right
+    position: absolute
+    top: 15rem
+    right: 10rem
+    z-index: -1
+    height: 200px
+
+    // Width 1280px
+    @media only screen and(max-width: 1280px)
+      display: none
+
+  #landing-background-bottom
+    position: absolute
+    bottom: 2rem
+    z-index: -1
+    height: 200px
+    left: 62vw
+    animation: bubble-floating 15s cubic-bezier(.57,.68,.44,1.25) infinite alternate
+
+    // Width 1000px
+    @media only screen and(max-width: 1000px)
+      display: none
+
+  // Navigation
+  @import 'navigation'
+
+  // Countdowns
+  @import 'countdowns/countdowns'

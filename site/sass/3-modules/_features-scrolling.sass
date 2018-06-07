@@ -1,0 +1,94 @@
+section#features
+  overflow: hidden
+  position: relative
+
+  background-size: cover
+  background-repeat: no-repeat
+  background-attachment: fixed
+
+  // Above Width 1200px
+  @media only screen and(min-width: 1200px)
+    background-image: url('../images/section-backgrounds/large/bg-features.jpg')
+
+  // Below Width 1200px
+  @media only screen and(max-width: 1200px)
+    background-image: url('../images/section-backgrounds/medium/bg-features.jpg')
+
+  // Below Width 960px
+  @media only screen and(max-width: 960px)
+    background-image: url('../images/section-backgrounds/small/bg-features.jpg')
+
+  // Below Width 480px
+  @media only screen and(max-width: 480px)
+    background-image: linear-gradient(#0b1113, #0b1113)
+
+  .container
+    width: 100%
+    mask-image: linear-gradient(to right, rgba(255,255,255,0) 1%,rgba(255,255,255,1) 6%,rgba(255,255,255,1) 90%,rgba(255,255,255,0) 99%)
+
+  .wrapper
+    max-width: 95%
+    margin:  0 auto
+    min-height: 150px
+    position: relative
+
+    ul
+      left: 0
+      transition: 1s ease-in-out
+      position: absolute
+      height: 140px
+
+      li
+        float: left
+        text-align: center
+        padding: 0 0.5rem
+        position: relative
+        height: 100%
+        overflow: hidden
+
+        h2
+          font-size: 1.4rem
+          color: white
+
+        hr
+          width: 120px
+          border: none
+          height: 2px
+          background: $primary-color
+          margin: 0.6rem auto
+
+        span
+          color: darken($background-color, 20%)
+          line-height: 160%
+
+  // Arrows
+  #arrow-left,
+  #arrow-right
+    top: 50%
+    transform: translateY(-50%)
+    position: absolute
+    padding: 1rem
+    cursor: pointer
+    transition: 0.2s ease-in-out
+    color: lighten($text-color, 40%)
+
+    i
+      font-size: 3rem
+
+    &:hover
+      color: lighten($text-color, 60%)
+
+    &.disabled
+      opacity: 0
+      cursor: auto
+      pointer-events: none
+
+    //Width 520px
+    @media only screen and(max-width: 520px)
+      top: 85%
+
+  #arrow-left
+    left: 1vw
+
+  #arrow-right
+    right: 1vw

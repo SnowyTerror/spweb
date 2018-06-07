@@ -1,0 +1,85 @@
+section#why-you-need-plex
+  position: relative
+
+  .bubbles
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+
+    > svg
+      height: 140%
+      position: absolute
+
+      &:first-child
+        right: 4%
+
+    //Width 1080px
+    @media only screen and(max-width: 1080px)
+      display: none
+
+  .container-half
+    width: 60%
+
+    &:nth-of-type(1)
+      width: 45%
+      float: right
+
+  ul
+    box-shadow: -10px 8px 14px rgba($text-color, 0.03)
+
+    li
+      font-size: 1.2rem
+      padding: 1.2rem 1rem
+      display: flex
+      transition: font-size 0.3 ease-in-out
+
+      &:before
+        font-family: $icon-font
+        content: 'lens'
+        margin-right: 0.8rem
+        line-height: 225%
+        color: $primary-color
+        font-size: 0.6rem
+
+      &:nth-child(even)
+        background: linear-gradient(90deg, darken($background-color, 4.5%) 0%, darken($background-color, 4.5%) 50%, white 95%)
+
+  .featured-image img
+    height: 380px
+
+  // Width 1300px
+  @media only screen and(max-width: 1300px)
+    > .container-mid
+      width: 95%
+
+    ul li
+      font-size: 1rem
+
+    .featured-image img
+      height: 300px
+
+  // Width 1080px
+  @media only screen and(max-width: 1080px)
+    .container-half
+      width: 100%
+      display: block
+      text-align: center
+
+      &:nth-of-type(1)
+        width: 100%
+        float: none
+        margin-bottom: 1rem
+
+    ul li
+      font-size: 1rem
+
+    .featured-image img
+      height: auto
+      width: 40%
+
+      // Width 480px
+      @media only screen and(max-width: 480px)
+        width: 100%

@@ -1,0 +1,192 @@
+section#roadmap
+  position: relative
+
+  .bubbles
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+
+    > svg
+      height: 60%
+      position: absolute
+
+      &:first-child
+        left: 8%
+
+      &:nth-child(2)
+        right: 8%
+
+      &:last-child
+        left: 8%
+
+  .roadmap-area
+    max-width: 1200px
+    position: relative
+    margin: 0 auto
+    @extend %cf
+
+    .item
+      margin: 4rem 0
+      width: calc(50% - 4rem)
+      @extend %cf
+
+      &:nth-child(even)
+        float: right
+
+        .content:before
+          height: 175px
+
+      &:nth-last-child(2):nth-child(odd) .content:before
+        height: 250px
+
+      &:last-child .content:before
+        height: 0
+
+      i
+        border-radius: 500px
+        padding: 0.4rem
+        left: 50%
+        line-height: 100%
+        position: absolute
+        z-index: 2
+        transform: translateX(-50%)
+        background: white
+        color: darken($background-color, 40%)
+        border: solid 2px darken($background-color, 10%)
+        text-align: center
+        font-size: 2rem
+        margin-top: -1.65rem
+
+      .content
+        margin-bottom: 0.2rem
+        padding: 1.2rem 1rem 2rem 1rem
+        box-shadow: 0 2px 4px rgba(black, 0.15)
+        background: darken(white, 5%)
+
+        &:before
+          position: absolute
+          background: darken($background-color, 10%)
+          content: ''
+          width: 2px
+          height: 350px
+          left: 50%
+          transform: translateX(-50%)
+          margin-top: -1.65rem
+
+        h3
+          font-size: 1.4rem
+          color: darken(white, 40%)
+
+        p
+          font-size: 1.1rem
+          margin-top: 0.2rem
+          color: darken(white, 30%)
+
+      // Active Item
+      &.active
+        i
+          padding: 0.6rem
+          color: black
+          border: solid 2px $primary-color
+          font-size: 0rem
+
+          &:after
+            display: block
+            font-size: 2rem
+            line-height: 100%
+            font-family: $icon-font
+            content: 'done'
+
+        .content
+          margin-bottom: 0.2rem
+          padding: 1.2rem 1rem 2rem 1rem
+          box-shadow: 0 2px 4px rgba(black, 0.2)
+          background: white
+
+          &:before
+            background: lighten($text-color, 10%)
+            background: linear-gradient(to bottom, $primary-color 0%, $primary-color 25%,darken($background-color, 10%) 65%,darken($background-color, 10%) 100%)
+
+          h3
+            color: $text-color
+
+          p
+            color: lighten($text-color, 20%)
+
+      // Completed items
+      &.completed
+        i
+          padding: 0.4rem
+          border: solid 2px $primary-color
+          color: lighten($text-color, 40%)
+          font-size: 0rem
+
+          &:after
+            display: block
+            font-size: 2rem
+            line-height: 100%
+            font-family: $icon-font
+            content: 'done'
+
+        .content
+          box-shadow: 0 2px 4px rgba(black, 0.2)
+          background: white
+
+          &:before
+            background: $primary-color
+
+          h3
+            color: $text-color
+
+          p
+            color: lighten($text-color, 20%)
+
+      // Width 920px
+      @media only screen and(max-width: 920px)
+        margin: 2rem 0
+        width: calc(50% - 2.5rem)
+
+        &:nth-child(even)
+
+          .content:before
+            height: 145px
+
+        .content
+          padding: 1.5rem 1rem
+
+          &:before
+            height: 300px
+
+          h3
+            font-size: 1.1rem
+
+          p
+            font-size: 1rem
+
+        &:nth-last-child(2):nth-child(odd) .content:before
+          height: 180px
+
+        &:last-child .content:before
+          height: 0
+
+      // Width 640px
+      @media only screen and(max-width: 640px)
+        margin: 1rem auto
+        width: 98%
+
+        &:nth-child(even)
+          float: none
+
+        i
+          display: none
+
+        .content:before
+          display: none
+
+        &.active
+          .content
+            border-bottom: solid 2px $primary-color
+            box-shadow: 0 4px 4px rgba($primary-color, 0.4)

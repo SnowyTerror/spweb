@@ -1,0 +1,86 @@
+section#token-distribution,
+section#funds-distribution
+  text-align: center
+  position: relative
+
+  .bubbles
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+
+    > svg
+      height: 100%
+      position: absolute
+
+      &:first-child
+        left: 4%
+
+      &:last-child
+        right: 8%
+
+  > .container
+    overflow: hidden
+
+  .container > svg
+    max-height: 600px
+    z-index: 1
+
+    .piechart-details
+      .percent
+        fill: $primary-color
+
+      .small-text
+        fill: lighten($text-color, 40%)
+
+      .line
+        fill: none
+        stroke: lighten($text-color, 60%)
+        stroke-miterlimit: 10
+        stroke-dasharray: 1, 1
+
+  ul
+    display: none
+
+  //Width 780px
+  @media only screen and(max-width: 780px)
+    .container > svg
+
+      .piechart-details
+        display: none
+
+    ul
+      display: block
+      margin-top: 1rem
+
+      li
+        display: flex
+        margin-top: 0.4rem
+        align-items: center
+        border-bottom: dotted 2px lighten($text-color, 60%)
+
+        &:last-child
+          border-bottom: none
+
+        h4
+          color: $primary-color
+          font-size: 1.3rem
+          margin-right: 0.6rem
+          min-width: 55px
+          text-align: right
+          padding: 0.4rem 0.2rem
+
+        p
+          color: lighten($text-color, 40%)
+
+  //Width 480px
+  @media only screen and(max-width: 480px)
+    .container > svg
+      transform: scale(1.4)
+      margin: 2.5rem 0 2.5rem
+
+section#funds-distribution > .bubbles > svg:first-child
+  left: 2%
+  width: 20%

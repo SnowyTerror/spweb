@@ -1,0 +1,133 @@
+#current-countdown
+  .wrapper
+
+    &:last-child
+      margin-top: 1.5rem
+
+    .countdown-area,
+    .sale-details
+      display: inline-flex
+      flex-direction: column
+      vertical-align: top
+
+    .countdown-area
+      margin-right: 1rem
+      width: 60%
+
+      h2
+        text-align: left
+
+      .countdown
+
+        > div
+          width: 90px
+          display: inline-block
+          margin-right: 1rem
+
+          // Width 480px
+          @media only screen and(max-width: 480px)
+            width: 65px
+            margin-right: 0.5rem
+
+      // Width 720px
+      @media only screen and(max-width: 720px)
+        width: 100%
+
+        h2
+          text-align: center
+
+    .sale-details
+      text-align: left
+      width: 228px
+
+      > div
+        display: inline-flex
+        flex-direction: row
+        position: relative
+
+        .eth
+          background: $background-color
+          display: block
+          padding: 0.95rem 1.1rem
+          font-size: 1.1rem
+
+        #bonus-bubble
+          color: $background-color
+          background: #E53A40
+          display: block
+          padding: 0.95rem 1.1rem
+          font-size: 1.1rem
+
+      // Width 720px
+      @media only screen and(max-width: 720px)
+        display: none
+
+      p
+        color: white
+        font-size: 1.4rem
+        margin-top: 0.4rem
+        font-weight: $f-md
+
+      > span
+        color: darken($background-color, 10%)
+        margin-top: 0.11rem
+
+    .soft-cap
+      margin: 1.5rem auto 1rem
+      width: 380px
+
+      h2
+        font-size: 1rem
+        font-weight: $f-lg
+        color: $background-color
+        text-transform: uppercase
+
+      #soft-cap-progress-bar
+        overflow: hidden
+        height: 55px
+        background: rgba(white, 0.2)
+        border: solid 2px $background-color
+        border-radius: 10px
+        text-align: left
+        margin-top: 1rem
+        position: relative
+        box-sizing: content-box
+        box-shadow: inset -20px 10px 10px rgba(white, 0.06)
+
+        .bar
+          height: 55px
+          background: $background-color
+          width: 25%
+          transition: width 0.4 ease
+
+        span
+          position: absolute
+          left: 1rem
+          top: 50%
+          transform: translateY(-50%)
+          color: lighten($text-color, 30%)
+          opacity: 0.6
+          font-weight: $f-md
+
+    // Width 480px
+    @media only screen and(max-width: 480px)
+      .countdown-area
+        margin-right: 0
+        display: block
+
+        h2
+          text-align: center
+          margin-bottom: 0.4rem
+
+        > span
+          color: darken($background-color, 10%)
+          margin-top: 0.11rem
+
+      .soft-cap
+        width: auto
+
+        #soft-cap-progress-bar
+          box-shadow: 2px 2px 8px rgba(black, 0.1)
+
+          span
+            color: $text-color

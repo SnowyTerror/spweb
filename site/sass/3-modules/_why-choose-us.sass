@@ -1,0 +1,31 @@
+section#why-choose-us
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: bottom
+  background-attachment: fixed
+
+  // Above Width 1200px
+  @media only screen and(min-width: 1200px)
+    background-image: url('../images/section-backgrounds/large/bg-why-choose-us.jpg')
+
+  // Below Width 1200px
+  @media only screen and(max-width: 1200px)
+    background-image: url('../images/section-backgrounds/medium/bg-why-choose-us.jpg')
+
+  // Below Width 960px
+  @media only screen and(max-width: 960px)
+    background-image: url('../images/section-backgrounds/small/bg-why-choose-us.jpg')
+
+  // Below Width 480px
+  @media only screen and(max-width: 480px)
+    background-image: linear-gradient(#0b1113, #0b1113)
+
+  p
+    font-size: 1.1rem
+    line-height: 210%
+    color: darken($background-color, 10%)
+
+    // Width 960px
+    @media only screen and(max-width: 960px)
+      font-size: 1rem
+      text-align: center

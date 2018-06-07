@@ -1,0 +1,238 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  overflow-x: hidden
+  height: 100%
+
+body
+  position: relative
+  background: $background-color
+  color: $text-color
+  font-family: $font
+  -webkit-tap-highlight-color: rgba($primary-color, 0.1)
+  -webkit-font-smoothing: antialiased
+
+// Links and Typography
+button
+  appearance: none
+  border: none
+  transition: 0.23s ease-in-out
+  background: none
+  cursor: pointer
+  outline: none
+  font-family: $font
+
+a
+  cursor: pointer
+  outline: none
+
+a
+  text-decoration: none
+  color: $link-color
+  transition: 0.23s ease
+
+  &:hover,
+  &:focus
+    color: lighten($link-color, 15%)
+
+ul
+  list-style: none
+
+p, h1, h2, h3, h4, h5, h6, a, button, .btn
+  letter-spacing: 1.1px
+
+// Form
+form
+
+  .input-group
+    margin: 0 0 1rem
+
+    label
+      display: block
+      margin-bottom: 0.2rem
+      font-weight: $f-md
+      color: lighten($text-color, 20%)
+
+      a
+        font-weight: $f-md
+
+    input
+      display: table
+      outline: none
+      font-family: $font
+      min-width: 100%
+      padding: 0.6rem
+      border-radius: 5px
+      border: solid 2px lighten($text-color, 80%)
+      transition: 0.2s ease-in-out
+
+      &::placeholder
+        color: lighten($text-color, 80%)
+        font-style: italic
+        font-size: 0.9rem
+
+      &:hover
+        background: lighten($text-color, 98%)
+
+      &:focus
+        border-color: $primary-color
+
+      &:disabled
+        pointer-events: none
+        background: lighten($text-color, 90%)
+
+  .tick-group
+    margin: 0 0 1rem
+    position: relative
+
+    label
+      font-size: 0.9rem
+      color: lighten($text-color, 20%)
+      transition: 0.2s ease-in-out
+      margin-left: 1.6rem
+
+      a
+        font-weight: $f-md
+
+    input
+      cursor: pointer
+      width: 14px
+      height: 14px
+      appearance: none
+      transition: 0.2s ease-in-out
+      border: solid 2px $background-color
+      border-radius: 500px
+      position: absolute
+      outline: none
+      margin-top: 0.2rem
+
+      &:before
+        top: -4px
+        left: -4px
+        border: solid 2px lighten($text-color, 40%)
+        border-radius: 500px
+        content: ''
+        position: absolute
+        height: 14px
+        width: 14px
+        transition: 0.4s ease-in-out
+
+      &:checked
+        background: $primary-color
+        border-color: $background-color
+
+        &:focus,
+        &:hover
+          background: lighten($primary-color, 10%)
+
+      &:hover
+        background: lighten($text-color, 80%)
+
+      &:disabled
+        pointer-events: none
+        background: lighten($text-color, 90%)
+
+        &:before
+          border-color: lighten($text-color, 80%)
+
+  input[type="submit"].standard
+    border: none
+    cursor: pointer
+    transition: 0.2s ease-in-out
+    min-width: 180px
+    font-family: $font
+    font-size: 0.9rem
+    padding: 1.4rem 1.6rem
+
+    &:disabled
+      pointer-events: none
+      background: lighten($text-color, 40%)
+
+    &.success
+      pointer-events: none
+      background: $positive-color
+
+    &.error
+      pointer-events: none
+      background: $negative-color
+
+  // Width 880px
+  @media only screen and(max-width: 880px)
+    .input-group
+      margin: 0 0 1.5rem
+
+    .tick-group
+      margin: 0 0 1.5rem
+
+  // Width 480px
+  @media only screen and(max-width: 480px)
+    input[type="submit"].standard
+      width: 100%
+      min-width: auto
+
+// Selectors
+::selection
+  background: rgba($primary-color, 0.18)
+
+img::selection
+  background: rgba($primary-color, 0.1)
+
+section
+  padding: 6rem 0
+
+  // Width 880px
+  @media only screen and(max-width: 880px)
+    padding: 4rem 0
+
+h2.section-title
+  color: $text-color
+  font-size: 1.15rem
+  font-weight: $f-md
+  text-transform: uppercase
+  margin-bottom: 3rem
+  text-align: center
+  line-height: 160%
+
+  &.light
+    color: $background-color
+
+  &.sb
+    margin-bottom: 1rem
+
+  // Width 880px
+  @media only screen and(max-width: 880px)
+    font-size: 1.1rem
+    line-height: 120%
+    margin-bottom: 1.5rem
+
+p.text-marc
+  text-align: center
+  color: darken($text-color, 75%)
+  font-size: 0.9rem
+  margin-top: 0.8rem
+
+// Clearfix
+%cf
+  &:before,
+  &:after
+    content: " "
+    display: table
+    width: 100%
+    clear: both
+    *zoom: 1
+
+// Lady loading Images
+img
+  opacity: 1
+  transition: opacity 0.2s ease-in-out
+
+  &[data-src]
+    opacity: 0
+
+// Parallax - Width 780px
+@media only screen and(max-width: 780px)
+  .bubbles
+    display: none

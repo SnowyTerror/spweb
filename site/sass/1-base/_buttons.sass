@@ -1,0 +1,45 @@
+// Typography Buttons
+.btn
+  display: inline-block
+  border-radius: 500px
+  text-transform: uppercase
+  font-weight: $f-md
+  text-align: center
+  transition: 0.23s ease
+  font-size: 1.05rem
+  padding: 1.6rem 2.8rem
+
+  // Width 880px
+  @media only screen and(max-width: 880px)
+    font-size: 1rem
+    padding: 1.4rem 2rem
+
+  &.disabled
+    pointer-events: none
+    cursor: auto
+    background: darken($background-color, 10%)
+    color: darken($background-color, 30%)
+
+.btn-primary
+  background: $primary-color
+  color: $background-color
+
+  &:focus,
+  &:hover
+    background: darken($primary-color, 5%)
+
+.btn-secondary
+  background: $background-color
+  color: $text-color
+
+  &:focus,
+  &:hover
+    background: darken($background-color, 5%)
+
+.btn-primary-light
+  background: $background-color
+  color: $primary-color
+
+  &:focus,
+  &:hover
+    background: darken($background-color, 5%)

@@ -1,0 +1,50 @@
+@keyframes bubble-floating
+  0%
+    transform: translateY(0) scale(1.02)
+
+  50%
+    transform: translateY(2rem)
+
+  100%
+    transform: translateY(-0.3rem) scale(1)
+
+@keyframes bubble-floating-small
+  0%
+    transform: translateY(0) scale(1)
+
+  50%
+    transform: translateY(0.5rem)
+
+  100%
+    transform: translateY(-0.4rem) scale(1.01)
+
+@keyframes fade-in-features
+  from
+    opacity: 0.02
+
+  to
+    opacity: 0.08
+
+// Features movement
+@keyframes features-life
+  from
+    transform: rotate(0deg) scale(0.9)
+
+  to
+    transform: rotate(15deg) scale(1)
+
+// Sale life
+@keyframes sale-life
+  from
+    transform: rotate(6deg)
+
+  to
+    transform: rotate(-4deg)
+
+// Glowing Shadow
+@keyframes glowing-shadow
+  from
+    box-shadow: 0 -5px 10px rgba($primary-color, 0.5)
+
+  to
+    box-shadow: 0 -10px 10px rgba($primary-color, 0.8)

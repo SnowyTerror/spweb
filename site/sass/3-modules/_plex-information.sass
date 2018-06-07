@@ -1,0 +1,127 @@
+section#plex-information
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: bottom
+  background-attachment: fixed
+  position: relative
+  overflow: hidden
+
+  // Above Width 1200px
+  @media only screen and(min-width: 1200px)
+    background-image: url('../images/section-backgrounds/large/bg-stats.jpg')
+
+  // Below Width 1200px
+  @media only screen and(max-width: 1200px)
+    background-image: url('../images/section-backgrounds/medium/bg-stats.jpg')
+
+  // Below Width 960px
+  @media only screen and(max-width: 960px)
+    background-image: url('../images/section-backgrounds/small/bg-stats.jpg')
+
+  // Below Width 480px
+  @media only screen and(max-width: 480px)
+    background-image: linear-gradient(#0b1113, #0b1113)
+
+  svg
+    position: absolute
+    z-index: 1
+    top: 0
+    transition: 0.5s ease
+
+    circle
+      opacity: 0.02
+      stroke: #fff
+      stroke-linecap: round
+      stroke-dashoffset: 0
+      animation: plex-stats-circles 30s ease alternate infinite
+
+    circle#circle-one
+      animation-delay: 1s
+      stroke-width: 5
+      stroke-dasharray: 14
+
+    circle#circle-two
+      animation-delay: 7s
+      stroke-width: 7
+      stroke-dasharray: 44
+
+    circle#circle-three
+      animation-delay: 4s
+      stroke-width: 10
+      stroke-dasharray: 30
+
+    circle#circle-four
+      animation-delay: 23s
+      stroke-width: 6
+      stroke-dasharray: 40
+
+    circle#circle-five
+      animation-delay: 17s
+      stroke-width: 3
+      stroke-dasharray: 7
+
+  > div > ul
+    position: relative
+    height: auto
+    min-height: 150px
+
+    li
+      position: absolute
+      width: 33.33%
+      text-align: center
+
+      &:nth-of-type(3)
+        top: 0
+        right: 0
+
+      &:nth-of-type(1)
+        bottom: 0
+
+      &:nth-of-type(2)
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+      h2
+        color: white
+        font-weight: $f-md
+        font-size: 2.2rem
+
+      span
+        font-size: 1.1rem
+        margin-top: 0.3rem
+        display: block
+        color: lighten($text-color, 40%)
+
+    // Width 920px
+    @media only screen and(max-width: 920px)
+      min-height: inherit
+
+      li
+        position: relative
+        width: 100%
+        text-align: center
+        margin-bottom: 1.5rem
+
+        &:nth-of-type(3)
+          top: auto
+          right: auto
+
+        &:nth-of-type(1)
+          bottom: auto
+
+        &:nth-of-type(2)
+          top: auto
+          left: auto
+          transform: none
+
+        h2
+          color: white
+          font-weight: $f-md
+          font-size: 1.8rem
+
+        span
+          font-size: 1.1rem
+          margin-top: 0.3rem
+          display: block
+          color: lighten($text-color, 40%)

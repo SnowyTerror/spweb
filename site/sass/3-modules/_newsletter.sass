@@ -1,0 +1,116 @@
+section#newsletter
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: bottom
+  background-attachment: fixed
+  text-align: center
+
+  // Above Width 1200px
+  @media only screen and(min-width: 1200px)
+    background-image: url('../images/section-backgrounds/large/bg-newsletter.jpg')
+
+  // Below Width 1200px
+  @media only screen and(max-width: 1200px)
+    background-image: url('../images/section-backgrounds/medium/bg-newsletter.jpg')
+
+  // Below Width 960px
+  @media only screen and(max-width: 960px)
+    background-image: url('../images/section-backgrounds/small/bg-newsletter.jpg')
+
+  // Below Width 480px
+  @media only screen and(max-width: 480px)
+    background-image: linear-gradient(#0b1113, #0b1113)
+
+  form
+    box-shadow: 0 4px 4px rgba(black, 0.2)
+    transition: 0.2s ease-in-out
+    border-radius: 10px
+    margin: 0 auto
+    text-align: center
+    display: inline-block
+
+    input
+      cursor: pointer
+      outline: none
+      border: none
+      background: none
+      font-family: $font
+      transition: 0.2s ease-in-out
+
+    input[type="email"]
+      background: white
+      width: 250px
+      padding: 1.2rem 0.6rem 1.2rem 1.4rem
+      border-radius: 10px 0 0 10px
+      color: lighten($text-color, 20%)
+
+      &:hover
+        background: darken(white, 2%)
+
+      &:disabled
+        pointer-events: none
+        background: lighten($text-color, 60%)
+        color: lighten($text-color, 50%)
+
+        &::placeholder
+          color: lighten($text-color, 50%)
+
+    input[type="submit"]
+      padding: 1.2rem
+      background: $primary-color
+      border-radius: 0 10px 10px 0
+      color: white
+      font-weight: $f-md
+      margin-left: -5px
+
+      &:hover
+        background: darken($primary-color, 2%)
+
+      &:disabled
+        pointer-events: none
+        background: lighten($text-color, 70%)
+        color: lighten($text-color, 60%)
+
+      &.success
+        pointer-events: none
+        background: $positive-color
+
+      &.error
+        pointer-events: none
+        background: $negative-color
+
+    &:hover
+      box-shadow: 0 2px 4px rgba(black, 0.6)
+
+  // Width 480px
+  @media only screen and(max-width: 480px)
+    > h2
+      line-height: 160%
+
+    form
+      display: block
+
+      input
+        display: block
+        width: 100%
+        text-align: center
+
+      input[type="email"]
+        width: 100%
+        padding: 1.2rem 1rem
+        border-radius: 10px 10px 0 0
+
+        &:hover
+          background: darken(white, 2%)
+
+      input[type="submit"]
+        padding: 1.2rem
+        border-radius: 0 0 10px 10px
+        margin-left: 0
+
+  p.morc
+    max-width: 280px
+    margin: 0.6rem auto 0
+    font-size: 0.7rem
+    line-height: 170%
+    color: lighten($text-color, 40%)

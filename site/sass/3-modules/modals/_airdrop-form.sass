@@ -1,0 +1,80 @@
+#airdrop-modal
+
+  .body
+
+    .container-half
+      display: inline-block
+      vertical-align: top
+      text-align: left
+      margin-right: 1rem
+      padding-left: 1rem
+
+      &:nth-of-type(1)
+        padding-left: 0
+        padding-right: 1rem
+        margin-right: 0
+        border-right: solid 2px lighten($text-color, 90%)
+        width: calc(100% - 440px - 1.4rem)
+
+      &:last-child
+        width: 440px
+
+      h4
+        text-align: left
+        margin-bottom: 0.8rem
+        font-size: 1.2rem
+        font-weight: $f-sm
+
+      ul li
+        font-size: 1.1rem
+        margin-bottom: 1.5rem
+        position: relative
+        margin-left: 1.1rem
+
+        &:before
+          margin-top: 0.45rem
+          font-family: $icon-font
+          content: 'lens'
+          margin-right: 0.5rem
+          position: absolute
+          right: 100%
+          font-size: 0.5rem
+
+        a
+          font-weight: $f-md
+
+      span
+        font-size: 0.8rem
+
+        a
+          font-weight: $f-md
+
+      // Width 880px
+      @media only screen and(max-width: 880px)
+        display: block
+        margin: 0
+        padding: 0
+
+        &:nth-of-type(1)
+          padding: 0
+          padding-bottom: 2rem
+          border-right: none
+          border-bottom: solid 2px lighten($text-color, 90%)
+          width: 100%
+
+        &:last-child
+          width: 100%
+          margin-top: 1rem
+
+        h4
+          font-size: 1.1rem
+
+        ul li
+          font-size: 1rem
+          margin-bottom: 1rem
+
+      // Width 480px
+      @media only screen and(max-width: 480px)
+        form input[type="submit"]
+          width: 100%
+          min-width: auto

@@ -1,0 +1,178 @@
+#navigation
+  padding: 1.5rem 0
+  position: fixed
+  width: 100%
+  transition: 0.2s ease-in-out
+  z-index: 50
+  background: rgba($background-color, 0.98)
+  box-shadow: 0 1px 6px rgba($text-color, 0.1)
+  max-height: 90px
+
+  img
+    display: inline-block
+    height: 90px
+    margin-top: -24px
+    transition: height 0.2s ease, margin 0.2s ease
+
+    // Width 420px
+    @media only screen and(max-width: 420px)
+      height: 80px
+      margin-top: -19px
+
+  nav#navbar
+    display: inline-block
+    float: right
+
+    // Items
+    ul#nav
+
+      li
+        display: inline-block
+        margin-top: 0.9rem
+        cursor: pointer
+
+        a
+          color: lighten($text-color, 75%)
+          transition: 0.2s ease
+          font-weight: $f-lg
+          padding: 1rem
+
+        &:hover,
+        &:focus
+          a
+            color: $text-color
+
+        &.featured
+
+          a
+            color: white
+            background: $primary-color
+            padding: 1rem 1.4rem
+            border-radius: 10px
+
+          &:hover,
+          &:focus
+            a
+              background: darken($primary-color, 5%)
+
+    // Nav Icon
+    #nav-toggle
+      display: none
+      transform: scale(1)
+      padding: 1rem
+      height: 2.6rem
+      width: 3rem
+      position: relative
+      cursor: pointer
+      float: right
+      transition: 0.2s ease
+      margin-right: 0.8rem
+      z-index: 51
+
+      span
+        display: block
+        background: lighten($text-color, 50%)
+        height: 2px
+        width: 100%
+        left: 0
+        position: absolute
+        transition: 0.2s ease
+
+        &:nth-child(1)
+          top: 0.5rem
+
+        &:nth-child(2),
+        &:nth-child(3)
+          top: 1.25rem
+
+        &:nth-child(4)
+          top: 2rem
+
+      &:hover,
+      &:focus,
+      &.active
+        transform: scale(0.9)
+
+        span
+          background: $text-color
+
+      &.active
+        transition: scale(0.9)
+
+        span
+          background: darken($background-color, 50%)
+
+          &:nth-child(1)
+            top: 18px
+            width: 0
+            left: 50%
+
+          &:nth-child(2)
+            transform: rotate(45deg)
+
+          &:nth-child(3)
+            transform: rotate(-45deg)
+
+          &:nth-child(4)
+            top: 18px
+            width: 0
+            left: 50%
+
+        &:hover,
+        &:focus
+          span
+            background: $background-color
+
+    // Width 1050px
+    @media only screen and(max-width: 1050px)
+      display: block
+
+      // Nav Items
+      ul#nav
+        display: block
+        float: none
+        text-align: center
+        margin: 0
+        padding: 0
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        background: rgba($text-color, 0.9)
+        transform-origin: top center
+        transform: perspective(400) rotate3d(1, 0, 0, -90deg)
+        transition: 0.2s ease
+        max-height: 0
+        width: 100%
+        overflow: hidden
+        z-index: 50
+        padding-top: 1rem
+        overflow-x: scroll
+
+        li
+          display: block
+
+          &:first-child
+            margin-top: 0.6rem
+
+          a
+            display: block
+            width: 100%
+            padding: 0.8rem 0
+            color: darken($background-color, 40%)
+
+          &:hover,
+          &:focus
+            a
+              color: $background-color
+
+          &.featured a
+            border-radius: 0px
+
+        &.active
+          max-height: 800px
+          transform: perspective(400) rotate3d(0, 0, 0, 0)
+
+      // Nav Icon
+      #nav-toggle
+        display: block
