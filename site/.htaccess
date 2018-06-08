@@ -9,6 +9,10 @@ RewriteRule ^(.*)$ http://www.storeplex.io/$1 [r=301,nc]
 Header set Cache-Control "public, max-age=72576000"
 </FilesMatch>
 
+<FilesMatch "\.(css| js)$">
+Header set Cache-Control "public, max-age=43200"
+</FilesMatch>
+
 # Password Protect file
 <Files artp.txt>
 AuthName "Prompt"
@@ -42,7 +46,7 @@ Require valid-user
 ErrorDocument 404 404.html
 
 # Block bad bots
-RewriteEngine On 
+RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
 RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
