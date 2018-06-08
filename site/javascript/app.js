@@ -529,7 +529,7 @@ jQuery(document).ready(function($) {
       },
       error: function(err) {
         // Adds feedback alert
-        $send.val('Please try again later.').addClass('error')
+        $send.val('The airdrop is currently closed').addClass('error')
 
         // Reset delay
         setTimeout(function() {
@@ -573,7 +573,7 @@ jQuery(document).ready(function($) {
       },
       error: function(err) {
         // Adds feedback alert
-        $send.val('Please try again later.').addClass('error')
+        $send.val('Please try again later').addClass('error')
 
         // Reset delay
         setTimeout(function() {
