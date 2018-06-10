@@ -131,6 +131,8 @@
     <noscript>
       <div><p>JavaScript is not enabled on this browser and this website's functionality relies on its use.</p> <a href="http://www.enable-javascript.com" target="_blank">How to enable javascript</a></div>
     </noscript>
+
+    <!-- Content -->
     <div id="content">
       <header class="nocounter">
         <div id="navigation">
@@ -142,7 +144,7 @@
 
       <!-- Airdrop notification -->
       <div class="decentralised-information alert">
-        <p>The airdrop is now over. Next Airdrop begins Saturday 9th</p>
+        <p>Airdrop Round 2 is now over. Round 3 starts Monday, June 11 @ 18:00 GMT+1</p>
       </div>
 
       <section id="airdrop">
@@ -155,19 +157,28 @@
             </div>
             <div class="input-group">
               <label for="airdrop-email">Email <i class="material-icons">lens</i></</label>
-              <input disabled type="email" name="airdrop-email" required placeholder="JohnSmith@domain.com">
+              <input disabled type="email" name="airdrop-email" required placeholder="youremail@domain.com">
             </div>
             <div class="input-group">
               <label for="airdrop-telegram">Telegram Username <i class="material-icons">lens</i></label>
-              <input disabled type="text" name="airdrop-telegram" required placeholder="john_smith">
+              <div class="input telegram">
+                <span>@</span>
+                <input disabled type="text" name="airdrop-telegram" required placeholder="john_smith">
+              </div>
             </div>
             <div class="input-group">
               <label for="airdrop-twitter">Twitter Profile <i class="material-icons">lens</i></label>
-              <input disabled type="url" name="airdrop-twitter" required placeholder="https://twitter.com/storeplexio">
+              <div class="input link">
+                <span>http://</span>
+                <input disabled value="twitter.com/" type="text" name="airdrop-twitter" required placeholder="twitter.com/storeplexio">
+              </div>
             </div>
             <div class="input-group">
               <label for="airdrop-bitcointalk">Bitcointalk Profile <i class="material-icons">lens</i></label>
-              <input disabled type="url" name="airdrop-bitcointalk" required placeholder="https://bitcointalk.org/index.php?action=profile;u=2090211">
+              <div class="input link">
+                <span>http://</span>
+                <input disabled value="bitcointalk.org/" type="text" name="airdrop-bitcointalk" required placeholder="bitcointalk.org/index.php?action=profile;u=2090211">
+              </div>
             </div>
             <div class="tick-group">
               <input disabled type="checkbox" name="airdrop-terms" required>
@@ -175,6 +186,10 @@
             </div>
 
             <input disabled type="submit" class="btn btn-primary standard" value="Submit">
+
+            <div class="modal">
+              <h5>Your submission was successful</h5>
+            </div>
           </form>
         </div>
       </section>

@@ -59,11 +59,13 @@ form
       a
         font-weight: $f-md
 
-    input
+    input,
+    select
       display: table
       outline: none
       font-family: $font
       min-width: 100%
+      line-height: 140%
       padding: 0.6rem
       border-radius: 5px
       border: solid 2px lighten($text-color, 80%)
@@ -143,6 +145,7 @@ form
     cursor: pointer
     transition: 0.2s ease-in-out
     min-width: 180px
+    line-height: 160%
     font-family: $font
     font-size: 0.9rem
     padding: 1.4rem 1.6rem
@@ -179,6 +182,27 @@ form
 
 img::selection
   background: rgba($primary-color, 0.1)
+
+.modal
+  position: absolute
+  left: 50%
+  top: 50%
+  padding: 1.6rem 2rem
+  border-radius: 10px
+  background: $background-color
+  box-shadow: 0 0 30px rgba($text-color, 0.2)
+  z-index: 50
+  transform: translate(-50%, -50%) scale(0)
+  overflow: hidden
+  transition: transform 0.2s cubic-bezier(.57,.68,.44,1.25)
+  background: $primary-color
+  color: $background-color
+
+  h5
+    font-size: 0.9rem
+
+  &.active
+    transform: translate(-50%, -50%) scale(1)
 
 section
   padding: 6rem 0

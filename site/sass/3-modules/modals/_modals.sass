@@ -81,30 +81,25 @@
       margin: 6rem auto 0
       width: 95%
 
+      label
+        position: relative
+
+        i
+          color: $negative-color
+          font-size: 0.4rem
+          position: absolute
+          margin-top: 0.45rem
+          margin-left: 0.3rem
+
+      .container-main
+        width: 100%
+        text-align: left
+        padding-bottom: 1rem
+        margin-bottom: 1rem
+
       // Width 640px
       @media only screen and(max-width: 640px)
         margin-top: 4rem
-
-    .modal
-      position: absolute
-      left: 50%
-      top: 50%
-      padding: 1.6rem 2rem
-      border-radius: 10px
-      background: $background-color
-      box-shadow: 0 0 30px rgba($text-color, 0.2)
-      z-index: 50
-      transform: translate(-50%, -50%) scale(0)
-      overflow: hidden
-      transition: transform 0.2s cubic-bezier(.57,.68,.44,1.25)
-      background: $primary-color
-      color: $background-color
-
-      h5
-        font-size: 0.9rem
-
-      &.active
-        transform: translate(-50%, -50%) scale(1)
 
   &.active
     height: 100%

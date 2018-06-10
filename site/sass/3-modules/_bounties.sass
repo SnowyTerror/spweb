@@ -6,12 +6,18 @@ section#airdrop
     max-width: 640px
     margin: 0 auto
 
-    label
+    .input
       position: relative
 
-      i
-        color: $negative-color
-        font-size: 0.4rem
+      span
         position: absolute
-        margin-top: 0.45rem
-        margin-left: 0.3rem
+        top: 50%
+        left: 0.5rem
+        transform: translateY(-50%)
+        color: lighten($text-color, 60%)
+
+    .input.telegram input
+      padding-left: 1.7rem
+
+    .input.link input
+      padding-left: 3.4rem

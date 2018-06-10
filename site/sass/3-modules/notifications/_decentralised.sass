@@ -15,6 +15,12 @@
   &.hide
     display: none
 
+  &.success
+    background: linear-gradient(0deg, lighten($positive-color, 0%) 0%,lighten($positive-color, 15%) 100%)
+
+  &.warning
+    background: linear-gradient(0deg, lighten(adjust-hue($negative-color, 20deg), 0%) 0%,lighten(adjust-hue($negative-color, 20deg), 15%) 100%)
+
   &.alert
     background: linear-gradient(0deg, lighten($negative-color, 0%) 0%,lighten($negative-color, 15%) 100%)
 

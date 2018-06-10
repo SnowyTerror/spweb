@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
   var preICOStart = new Date("11 June 2018 18:00:0");
   var preICOEnd = new Date("25 June 2018 00:00:0");
 
-  var ICOStart = new Date("02 July 2018 18:00:0");
+  var ICOStart = new Date("2 July 2018 18:00:0");
   var ICOEnd = new Date("30 July 2018 00:00:0");
 
   // Pre ICO Sale
@@ -258,11 +258,11 @@ jQuery(document).ready(function($) {
     $('body, html').css('overflow', 'hidden')
   })
 
-  // -- Airdrop
-  $('#airdrop-button').click(function() {
-    $('#modals, #modals #airdrop-modal, #content').addClass('active')
-    $('body, html').css('overflow', 'hidden')
-  })
+  // // -- Airdrop
+  // $('#airdrop-button').click(function() {
+  //   $('#modals, #modals #airdrop-modal, #content').addClass('active')
+  //   $('body, html').css('overflow', 'hidden')
+  // })
 
   // -- Add to Wallet
   $('#add-to-wallet-button').click(function() {
@@ -507,7 +507,7 @@ jQuery(document).ready(function($) {
     $.ajax({
       url: 'airdrop.php',
       method: 'POST',
-      data: $(this).serialize(),
+      data: $(form).serialize(),
       beforeSend: function() {
         // Disables user Interaction
         $('input').attr('disabled', true)
@@ -516,27 +516,30 @@ jQuery(document).ready(function($) {
       success: function(data) {
         // Adds feedback alert
         $send.val('Submission Successful!').addClass('success')
+        $('.modal').addClass('active')
 
         // Reset delay
         setTimeout(function() {
           // Enables user Interaction
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('success')
+          $('.modal').removeClass('active')
 
           // Clears form input
           $(form)[0].reset()
-        }, 5000)
+        }, 10000)
       },
       error: function(err) {
         // Adds feedback alert
         $send.val('The airdrop is currently closed').addClass('error')
+        console.log("Hey, removing the disabled attribute doesn't mean you can submit your information. :)")
 
         // Reset delay
         setTimeout(function() {
           // Enables user Interaction
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('error')
-        }, 3000)
+        }, 10000)
       }
     })
   })
@@ -560,16 +563,18 @@ jQuery(document).ready(function($) {
       success: function(data) {
         // Adds feedback alert
         $send.val('Submission Successful!').addClass('success')
+        $('.modal').addClass('active')
 
         // Reset delay
         setTimeout(function() {
           // Enables user Interaction
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('success')
+          $('.modal').removeClass('active')
 
           // Clears form input
           $(form)[0].reset()
-        }, 5000)
+        }, 10000)
       },
       error: function(err) {
         // Adds feedback alert
@@ -580,7 +585,57 @@ jQuery(document).ready(function($) {
           // Enables user Interaction
           $('input').attr('disabled', false)
           $send.attr('disabled', false).val(defaultText).removeClass('error')
-        }, 3000)
+        }, 10000)
+      }
+    })
+  })
+
+  // Buy Tokens Anti Fraud handler
+  // Airdrop handler
+  $('#anti-fraud-form').submit(function(e) {
+    var form = this
+    e.preventDefault()
+    var $send = $('input:submit', form)
+    var defaultText = $send.val()
+
+    $.ajax({
+      url: 'anti-fraud.php',
+      method: 'POST',
+      data: $(form).serialize(),
+      beforeSend: function() {
+        // Disables user Interaction
+        $('input').attr('disabled', true)
+        $send.attr('disabled', true).val('Sending...')
+      },
+      success: function(data) {
+        // Adds feedback alert
+        $send.val('Submission Successful!').addClass('success')
+        $('.modal-submit').addClass('active')
+
+        // Reset delay
+        setTimeout(function() {
+          // Enables user Interaction
+          $('input').attr('disabled', false)
+          $send.attr('disabled', false).val(defaultText).removeClass('success')
+          $('.modal-submit').removeClass('active')
+          $('#buy-tokens-form').removeClass('active')
+          $('#buy-tokens-instructions').addClass('active')
+
+          // Clears form input
+          $(form)[0].reset()
+        }, 3500)
+      },
+      error: function(err) {
+        // Adds feedback alert
+        $send.val('Please try again later').addClass('error')
+        console.log("Hey, removing the disabled attribute doesn't mean you can submit your information. :)")
+
+        // Reset delay
+        setTimeout(function() {
+          // Enables user Interaction
+          $('input').attr('disabled', false)
+          $send.attr('disabled', false).val(defaultText).removeClass('error')
+        }, 5000)
       }
     })
   })
